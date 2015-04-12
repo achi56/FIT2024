@@ -4,15 +4,13 @@
 public abstract class Assessment {
     private int weight;
 
-    public String description() {
-        return ("" + weight);
-    }
+    public abstract String description();
 
-    public void setValues(int newWeight) {
+    public void setWeight(int newWeight) {
         weight = newWeight;
     }
 
-    public void get() {
-
+    public int getWeight() {
+        return weight;
     }
 }

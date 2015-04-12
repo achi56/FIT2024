@@ -27,7 +27,7 @@ public class Student {
     }
 
     public String description() {
-        return (studentID + " " + firstName + " " + lastName);
+        return ("ID:" + studentID + " Name:" + firstName + " " + lastName);
     }
 
 }

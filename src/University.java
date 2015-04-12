@@ -7,8 +7,6 @@ public class University {
 
 
     ArrayList<Unit> units = new ArrayList<Unit>();
-    ArrayList<Assessment> assessment = new ArrayList<Assessment>();
-
 
 
     public void run() {
@@ -26,10 +24,17 @@ public class University {
         String c;
         Scanner in = new Scanner(System.in);
 
-		units.add(new Unit("FIT2024","Software Engineering Practice"));
-        units.add(new Unit("FIT1010", "Introduction to Software Engineering"));
-        units.add(new Unit("FIT2004", "Algorithms and Data Structures"));
-        //assessment.add(new AssessmentScheme());
+		units.add(new Unit("FIT2024","Software Engineering Practice", "George Stevens"));
+        units.add(new Unit("FIT1010", "Introduction to Software Engineering", "Fredrick Lucas"));
+        units.add(new Unit("FIT2004", "Algorithms and Data Structures", "Lucas McLovin"));
+
+
+        units.get(0).addStaff(785495, new StaffMember(785495, "Nexgen 360", 40, 98765803));
+        units.get(1).addStaff(56789, new StaffMember(56789, "A StaffMember", 41, 12387));
+        units.get(2).addStaff(67890, new StaffMember(67890, "Another StaffMember", 42, 9832345));
+        units.get(0).addExam(new Exam(40,60));
+        units.get(0).addAssignment(new Assignment("Test", 30));
+
 
         for (int i = 0; i < units.size(); i++) {
             System.out.println("How many students in Unit: " + units.get(i).description());
@@ -52,11 +57,22 @@ public class University {
 
 
 	public void displayUnits() {
+        System.out.println("");
         for (int i = 0; i < units.size(); i++) {
             System.out.println(units.get(i).description());
             System.out.println("Enrolled Students:");
             for (Integer key:units.get(i).enrolledStudents.keySet()) {
                 System.out.println(units.get(i).enrolledStudents.get(key).description());
+            }
+            System.out.println("");
+            System.out.println("Unit Staff:");
+            for (Integer key2:units.get(i).unitStaff.keySet()) {
+                System.out.println(units.get(i).unitStaff.get(key2).description());
+            }
+            System.out.println("");
+            System.out.println("Assessments:");
+            for (int j = 0; i< units.get(i).getScheme().assessment.size();i++) {
+                System.out.println(units.get(i).getScheme().assessment.get(j).description());
             }
             System.out.println("");
 
